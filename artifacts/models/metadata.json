@@ -1,0 +1,44 @@
+{
+  "model_version": "hf-aldahmashi-dr-efficientnetb0-fb8d14c",
+  "display_name": "APTOS EfficientNetB0 demonstration baseline",
+  "artifact_sha256": "e7aa6b69911a2a913a03a6a5669bb7aaeb6bf8f8c81a2a3d92aa2420e5d297d8",
+  "artifact_bytes": 33436274,
+  "source": {
+    "provider": "Hugging Face",
+    "repository": "Aldahmashi/DR-EfficientNetB0",
+    "revision": "fb8d14c59bd56aa17fe0dfdea04a83ecd2f2eeac",
+    "url": "https://huggingface.co/Aldahmashi/DR-EfficientNetB0",
+    "license": "MIT",
+    "author": "Nasser Aldahmashi"
+  },
+  "training_dataset": "APTOS 2019 Blindness Detection",
+  "training_scope": "3,662 retinal fundus images; five diabetic-retinopathy severity classes",
+  "framework": {
+    "keras": "3.13.2",
+    "tensorflow_runtime": "2.20.0"
+  },
+  "input": {
+    "shape": [224, 224, 3],
+    "color_space": "RGB",
+    "value_range": [0, 255],
+    "model_contains_rescaling_and_normalization": true
+  },
+  "class_names": {
+    "0": "No Apparent Diabetic Retinopathy",
+    "1": "Mild Non-Proliferative Diabetic Retinopathy",
+    "2": "Moderate Non-Proliferative Diabetic Retinopathy",
+    "3": "Severe Non-Proliferative Diabetic Retinopathy",
+    "4": "Proliferative Diabetic Retinopathy"
+  },
+  "published_evaluation": {
+    "scope": "Model-author held-out validation on 550 APTOS 2019 images",
+    "independent_local_evaluation": false,
+    "accuracy": 0.72,
+    "macro_f1": 0.57,
+    "weighted_f1": 0.73,
+    "source_url": "https://huggingface.co/Aldahmashi/DR-EfficientNetB0",
+    "warning": "Published baseline evidence is not an independent evaluation of this application pipeline."
+  },
+  "intended_use": "Reproducible software demonstration and research education under human review",
+  "prohibited_use": "Clinical diagnosis, treatment, emergency triage, or autonomous patient communication"
+}

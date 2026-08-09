@@ -1,0 +1,7 @@
+{
+  "temperature": 1.0,
+  "status": "not_calibrated",
+  "method": "identity",
+  "selected_on": null,
+  "warning": "No validation logits were distributed with the external demonstration model. Displayed confidence is raw softmax confidence and must not be described as clinically calibrated."
+}
