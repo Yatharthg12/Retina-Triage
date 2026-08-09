@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Command Centre · RetinaTriage AI{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div><p class="eyebrow">CLINICAL OPERATIONS</p><h1>Command centre</h1><p>Screening activity, review pressure, and model readiness at a glance.</p></div>
+  <a class="button primary" href="/analyze">Analyze a retina <span>→</span></a>
+</section>
+<div class="alert warning"><strong>Research decision support only.</strong> This prototype does not diagnose, prescribe treatment, or replace ophthalmologist review.</div>
+<section class="metric-grid" aria-label="Screening summary">
+  <article class="metric"><span class="metric-icon teal">◉</span><div><small>Total screenings</small><strong id="totalScreenings">—</strong><em>Audited records</em></div></article>
+  <article class="metric"><span class="metric-icon red">!</span><div><small>High priority</small><strong id="highPriority">—</strong><em>Urgent + high</em></div></article>
+  <article class="metric"><span class="metric-icon amber">◇</span><div><small>Manual review</small><strong id="manualReview">—</strong><em>Uncertain cases</em></div></article>
+  <article class="metric"><span class="metric-icon slate">◌</span><div><small>Poor quality</small><strong id="poorQuality">—</strong><em>Retake requested</em></div></article>
+</section>
+<section class="two-column">
+  <article class="panel queue-panel">
+    <div class="panel-head"><div><p class="eyebrow">PRIORITY QUEUE</p><h2>Latest screenings</h2></div><a href="/history">View all →</a></div>
+    <div class="table-wrap">
+      <table><thead><tr><th>Case</th><th>Severity</th><th>Priority</th><th>Confidence</th><th>Time</th></tr></thead><tbody id="recentQueue"><tr><td colspan="5"><div class="empty-inline">Loading queue…</div></td></tr></tbody></table>
+    </div>
+  </article>
+  <aside class="stack">
+    <article class="panel model-panel">
+      <div class="panel-head"><div><p class="eyebrow">MODEL READINESS</p><h2>Inference service</h2></div><span id="modelBadge" class="badge neutral">Checking</span></div>
+      <div class="model-orbit"><div class="orbit"><span></span></div><div><strong id="modelVersion">—</strong><small>Model version</small></div></div>
+      <dl class="compact-list"><div><dt>Backbone</dt><dd>EfficientNetB0</dd></div><div><dt>Classes</dt><dd>5 ordinal grades</dd></div><div><dt>Mean processing</dt><dd id="avgLatency">—</dd></div></dl>
+    </article>
+    <article class="panel distribution-panel"><div class="panel-head"><div><p class="eyebrow">CASE MIX</p><h2>Severity distribution</h2></div></div><div id="severityBars" class="severity-bars"></div></article>
+  </aside>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>{% endblock %}
+

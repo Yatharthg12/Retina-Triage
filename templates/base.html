@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="RetinaTriage AI research screening and prioritization platform">
+  <title>{% block title %}RetinaTriage AI{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/presentation.css') }}">
+</head>
+<body data-page="{{ page }}">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <aside class="sidebar" aria-label="Primary navigation">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true"><span></span></span>
+      <span><strong>RetinaTriage</strong><small>AI screening ops</small></span>
+    </a>
+    <nav>
+      <a class="{{ 'active' if page == 'dashboard' }}" href="/"><span>⌁</span> Command centre</a>
+      <a class="{{ 'active' if page == 'analyze' }}" href="/analyze"><span>◎</span> Analyze retina</a>
+      <a class="{{ 'active' if page == 'batch' }}" href="/batch"><span>▦</span> Batch screening</a>
+      <a class="{{ 'active' if page == 'model' }}" href="/model"><span>⌬</span> Model intelligence</a>
+      <a class="{{ 'active' if page == 'history' }}" href="/history"><span>≡</span> Screening history</a>
+      <a class="{{ 'active' if page == 'about' }}" href="/about"><span>i</span> Responsible use</a>
+    </nav>
+    <div class="sidebar-status">
+      <span class="status-dot {{ 'ready' if model_status.available }}"></span>
+      <div><strong>{{ model_status.status }}</strong><small>{{ model_status.version }}</small></div>
+    </div>
+  </aside>
+  <div class="shell">
+    <header class="topbar">
+      <button class="menu-button" id="menuButton" aria-label="Toggle navigation">☰</button>
+      <div class="research-pill"><span></span> RESEARCH USE ONLY</div>
+      <div class="topbar-right"><span id="clock"></span><span class="avatar" aria-label="Demonstration user">RT</span></div>
+    </header>
+    <main id="main">{% block content %}{% endblock %}</main>
+    <footer>RetinaTriage AI · Decision-support research prototype · An ophthalmologist makes the final clinical decision.</footer>
+  </div>
+  <div class="toast-region" id="toasts" aria-live="polite"></div>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

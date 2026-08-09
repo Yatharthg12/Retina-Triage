@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Batch Screening · RetinaTriage AI{% endblock %}
+{% block content %}
+<section class="page-head"><div><p class="eyebrow">MULTI-IMAGE WORKFLOW</p><h1>Batch screening</h1><p>Process up to 20 images with partial-failure handling and risk-first sorting.</p></div></section>
+<div class="alert warning quality-policy"><strong>Quality acceptance threshold: 75/100.</strong> Images below 75 are withheld from automated grading and routed to retake/manual review. Passing 75 does not establish clinical image quality.</div>
+<article class="panel batch-uploader">
+  <label class="dropzone compact" for="batchInput"><input id="batchInput" type="file" multiple accept=".jpg,.jpeg,.png"><span class="upload-orbit">＋</span><div><strong>Select retinal images</strong><small>JPG, JPEG or PNG · results are independently validated</small></div></label>
+  <button id="batchButton" class="button primary" disabled>Start batch</button>
+</article>
+<section class="metric-grid compact-metrics"><article class="metric"><div><small>Selected</small><strong id="batchSelected">0</strong></div></article><article class="metric"><div><small>Completed</small><strong id="batchCompleted">0</strong></div></article><article class="metric"><div><small>Manual review</small><strong id="batchReview">0</strong></div></article><article class="metric"><div><small>Errors</small><strong id="batchErrors">0</strong></div></article></section>
+<article class="panel">
+  <div class="panel-head"><div><p class="eyebrow">BATCH QUEUE</p><h2>Screening results</h2></div><div><button class="button secondary" id="batchExport" disabled>Export CSV</button> <input class="table-search" id="batchSearch" placeholder="Search filename" aria-label="Search batch results"></div></div>
+  <div class="table-wrap"><table><thead><tr><th>Filename</th><th>Status</th><th>Quality</th><th>Severity</th><th>Priority</th></tr></thead><tbody id="batchRows"><tr><td colspan="5"><div class="empty-inline">Choose images to begin.</div></td></tr></tbody></table></div>
+</article>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/batch.js') }}"></script>{% endblock %}

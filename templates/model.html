@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Model Intelligence · RetinaTriage AI{% endblock %}
+{% block content %}
+<section class="page-head"><div><p class="eyebrow">TRANSPARENT VALIDATION</p><h1>Model intelligence</h1><p>Architecture, evaluation evidence, calibration, and known limitations.</p></div><span class="badge neutral" id="evaluationStatus">Checking artifacts</span></section>
+<section class="two-column model-intel">
+  <article class="panel"><p class="eyebrow">INSTALLED ARCHITECTURE</p><h2>EfficientNetB0 demonstration baseline</h2><div class="architecture-flow"><span>224² RGB</span><i>→</i><span>Rescale + normalize</span><i>→</i><span>EfficientNetB0</span><i>→</i><span>Global pool</span><i>→</i><span>5-class softmax</span></div><dl class="compact-list"><div><dt>Training source</dt><dd>APTOS 2019</dd></div><div><dt>Confidence</dt><dd>Raw softmax · uncalibrated</dd></div><div><dt>Quality gate</dt><dd>Composite score ≥ 75 / 100</dd></div></dl></article>
+  <article class="panel"><p class="eyebrow">EVALUATION STATE</p><div id="evaluationContent" class="evaluation-empty"><div class="empty-illustration small"><span></span></div><h2>Loading…</h2></div></article>
+</section>
+<article class="panel limitations"><p class="eyebrow">LIMITATIONS</p><h2>Evidence boundaries</h2><div class="three-column"><p><strong>Dataset shift</strong>Camera, population and acquisition differences may reduce performance.</p><p><strong>Quality heuristic</strong>The gradability gate is interpretable but not clinically validated.</p><p><strong>Decision support</strong>Outputs require ophthalmologist review and are not diagnoses.</p></div></article>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/model.js') }}"></script>{% endblock %}

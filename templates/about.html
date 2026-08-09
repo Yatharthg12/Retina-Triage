@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Responsible Use · RetinaTriage AI{% endblock %}
+{% block content %}
+<section class="page-head"><div><p class="eyebrow">GOVERNANCE</p><h1>About & responsible use</h1><p>What the system does, where it stops, and why human review remains essential.</p></div></section>
+<section class="about-hero"><div><span class="brand-mark large"><span></span></span><p class="eyebrow">RETINATRIAGE AI</p><h2>Earlier review for the cases that may need it most.</h2><p>A research platform for image-quality assessment, five-grade diabetic-retinopathy screening, uncertainty routing, visual explanation and auditable prioritization.</p></div></section>
+<section class="three-column cards">
+  <article class="panel"><span class="number">01</span><h2>Quality gate</h2><p>Blur, exposure, contrast, resolution and retinal-field coverage are checked before a disease output is displayed.</p></article>
+  <article class="panel"><span class="number">02</span><h2>Severity screening</h2><p>An EfficientNetB0 demonstration model estimates grade 0–4 probabilities, referable DR and high-risk DR; its confidence is explicitly marked uncalibrated.</p></article>
+  <article class="panel"><span class="number">03</span><h2>Human review</h2><p>Severe, poor-quality or uncertain cases are escalated in a deterministic priority service.</p></article>
+</section>
+<article class="panel severity-guide"><p class="eyebrow">SEVERITY FRAMEWORK</p><h2>Five research screening grades</h2><div class="grade-row"><span class="grade g0">0</span><div><strong>No apparent DR</strong><small>Routine queue</small></div><span class="grade g1">1</span><div><strong>Mild NPDR</strong><small>Follow-up</small></div><span class="grade g2">2</span><div><strong>Moderate NPDR</strong><small>Specialist review</small></div><span class="grade g3">3</span><div><strong>Severe NPDR</strong><small>High priority</small></div><span class="grade g4">4</span><div><strong>Proliferative DR</strong><small>Urgent high priority</small></div></div></article>
+<section class="responsible-grid"><article class="panel good"><h2>Intended research use</h2><ul><li>Retrospective validation and workflow research</li><li>Screening queue prioritization under clinician oversight</li><li>Education using properly governed, de-identified data</li></ul></article><article class="panel bad"><h2>Prohibited use</h2><ul><li>Autonomous diagnosis or treatment decisions</li><li>Emergency assessment or exclusion of disease</li><li>Use as a certified medical device</li></ul></article></section>
+<div class="alert critical"><strong>Medical disclaimer.</strong> Every image and output must be reviewed in the appropriate clinical context by a qualified ophthalmologist. Grad-CAM is not lesion segmentation, clinical annotation or proof of pathology.</div>
+<div class="alert warning"><strong>Quality-threshold disclaimer.</strong> The configured acceptance threshold is 75/100. Scores below 75 require retake/manual review; scores of 75 or above pass only an unvalidated software heuristic and do not guarantee clinical gradability or diagnostic reliability.</div>
+{% endblock %}

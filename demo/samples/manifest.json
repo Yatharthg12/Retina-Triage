@@ -1,0 +1,41 @@
+{
+  "notice": "Source descriptions are provided for presentation context. They are not five-grade ground truth for this application, and model output may differ.",
+  "samples": [
+    {
+      "filename": "diabetic_retinopathy_cdc_pd.jpg",
+      "case_id": "DEMO-CDC-DR",
+      "title": "CDC diabetic retinopathy",
+      "source_description": "CDC PHIL describes this fundoscopic view as a case of diabetic retinopathy.",
+      "presentation_use": "Primary live-inference and Grad-CAM example.",
+      "source_url": "https://phil.cdc.gov/Details.aspx?pid=20467",
+      "download_url": "https://phil.cdc.gov/PHIL_Images/20467/20467_lores.jpg",
+      "attribution": "CDC / Lucille H. Young, PHIL ID 20467",
+      "license": "Public domain; no copyright restrictions",
+      "sha256": "e77dc54ab2a7715a403b25a5ea440be018bbde093b3b785a445597e3f3e1b70f"
+    },
+    {
+      "filename": "background_retinopathy_nih_pd.jpg",
+      "case_id": "DEMO-NIH-BACKGROUND",
+      "title": "NIH background retinopathy",
+      "source_description": "The National Eye Institute describes this image as background retinopathy.",
+      "presentation_use": "Composite quality-score example; individual blur observations are shown but only a score below 75 withholds grading.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Fundus_retinopathy_EDA03.JPG",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fundus%20retinopathy%20EDA03.JPG",
+      "attribution": "National Eye Institute, National Institutes of Health, reference EDA03",
+      "license": "Public domain; U.S. federal government work",
+      "sha256": "75c839c98d533a12c50bb367285fccee3b3e6a5af8405ac0a053cfea371a3d18"
+    },
+    {
+      "filename": "normal_fundus_cc0.jpg",
+      "case_id": "DEMO-NORMAL-FUNDUS",
+      "title": "Normal fundus photograph",
+      "source_description": "The source describes a normal right-eye fundus with no sign of disease or pathology.",
+      "presentation_use": "Image-quality and dataset-shift discussion example; no expected model grade is asserted.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Fundus_photograph_of_normal_right_eye.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fundus%20photograph%20of%20normal%20right%20eye.jpg",
+      "attribution": "Mikael Häggström",
+      "license": "CC0 1.0 public-domain dedication",
+      "sha256": "6bd97a7bfc54c2c794ad08771ce8f9e9223486f21d922934cfc11cb01b2efdae"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+# Secrets and local environment configuration
+.env
+.env.*
+!.env.example
+.kaggle/
+kaggle.json
+
+# Python environments, caches, and test output
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Editors and operating systems
+.idea/
+.vscode/
+*.code-workspace
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs and temporary downloads
+*.log
+logs/
+*.part
+*.tmp
+
+# Datasets and generated split manifests
+data/raw/**
+!data/raw/.gitkeep
+data/processed/**
+!data/processed/.gitkeep
+data/splits/**
+!data/splits/.gitkeep
+
+# Model binaries and generated training/evaluation/report artifacts
+artifacts/models/**
+!artifacts/models/.gitkeep
+!artifacts/models/metadata.json
+!artifacts/models/calibration.json
+artifacts/training/**
+!artifacts/training/.gitkeep
+artifacts/evaluation/**
+!artifacts/evaluation/.gitkeep
+artifacts/reports/**
+!artifacts/reports/.gitkeep
+*.keras
+*.h5
+*.ckpt
+
+# Runtime state and uploads
+instance/
+uploads/
+*.sqlite
+*.sqlite3
+*.db

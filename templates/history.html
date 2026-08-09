@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Screening History · RetinaTriage AI{% endblock %}
+{% block content %}
+<section class="page-head"><div><p class="eyebrow">AUDIT TRAIL</p><h1>Screening history</h1><p>Anonymous, model-versioned records with review rationale.</p></div><a class="button secondary" href="/api/predictions?format=csv">Export CSV</a></section>
+<article class="panel">
+  <div class="filter-row"><input id="historySearch" placeholder="Search ID or filename"><select id="priorityFilter"><option value="">All priorities</option><option>URGENT – HIGH PRIORITY</option><option>HIGH PRIORITY</option><option>SPECIALIST REVIEW</option><option>FOLLOW-UP</option><option>ROUTINE</option><option>RETAKE / MANUAL REVIEW</option></select><select id="reviewFilter"><option value="">All review states</option><option value="true">Manual review</option><option value="false">No review flag</option></select></div>
+  <div class="table-wrap"><table><thead><tr><th>Screening</th><th>Created</th><th>Grade</th><th>Priority</th><th>Review</th><th>Actions</th></tr></thead><tbody id="historyRows"><tr><td colspan="6"><div class="empty-inline">Loading records…</div></td></tr></tbody></table></div>
+</article>
+<dialog id="deleteDialog"><h2>Delete screening record?</h2><p>This removes the audit record from this local database. The action cannot be undone.</p><div><button class="button secondary" id="cancelDelete">Cancel</button><button class="button danger" id="confirmDelete">Delete record</button></div></dialog>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/history.js') }}"></script>{% endblock %}
+

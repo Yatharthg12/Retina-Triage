@@ -1,0 +1,5 @@
+{
+  "extends": "default.json",
+  "demo_mode": {"enabled": true}
+}
+

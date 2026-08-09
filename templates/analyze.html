@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Analyze Retina · RetinaTriage AI{% endblock %}
+{% block content %}
+<section class="page-head"><div><p class="eyebrow">SINGLE SCREENING</p><h1>Analyze retina</h1><p>Quality-gated five-grade screening with uncertainty-aware prioritization.</p></div></section>
+<div class="alert warning quality-policy"><strong>Quality acceptance threshold: 75/100.</strong> Scores below 75 require retake or manual review and no disease grade is displayed. A score of 75 or above passes only this software heuristic; it does not guarantee clinical gradability, diagnostic accuracy, or suitability for patient care.</div>
+<div id="modelWarning" class="alert critical" {% if model_status.available %}hidden{% endif %}>
+  <strong>Model not installed.</strong> Upload validation and quality assessment are available, but disease prediction is disabled. Train or install an artifact to enable screening.
+</div>
+<section class="analyze-layout">
+  <article class="panel upload-panel">
+    <div class="step-label"><span>01</span><div><strong>Provide retinal image</strong><small>No identifiable patient data</small></div></div>
+    <label class="dropzone" id="dropzone" for="imageInput">
+      <input id="imageInput" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png">
+      <span class="upload-orbit">↑</span><strong>Drop a fundus image here</strong><small>or click to choose · JPG, JPEG, PNG · max 12 MB</small>
+      <img id="preview" alt="Selected retinal image preview" hidden>
+    </label>
+    <label class="field"><span>Anonymous case ID <em>optional</em></span><input id="caseId" maxlength="64" autocomplete="off" placeholder="e.g. SCREEN-2407-A"></label>
+    <button class="button primary full" id="analyzeButton" disabled>Run quality-gated analysis <span>→</span></button>
+    <div class="progress-track" id="progressTrack" hidden><span></span><p id="progressText">Validating image…</p></div>
+    <div class="demo-samples">
+      <div class="demo-samples-head"><span>Presentation samples</span><small>De-identified · freely reusable</small></div>
+      <div id="demoSampleButtons" class="demo-sample-buttons"><small>Loading sample pack…</small></div>
+      <p id="demoSampleNotice" class="demo-sample-note">Source descriptions are context, not five-grade ground truth.</p>
+    </div>
+  </article>
+  <section class="results-column" id="resultArea" aria-live="polite">
+    <article class="panel result-empty"><div class="empty-illustration"><span></span></div><h2>Awaiting image</h2><p>Quality, severity, uncertainty, priority and explanation will appear here.</p></article>
+  </section>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/analyze.js') }}"></script>{% endblock %}
